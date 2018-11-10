@@ -1,0 +1,72 @@
+﻿@using Hotel.ViewModels
+@model ServicesViewModel
+@{
+    ViewData["Title"] = "Услуги";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Услуги</h2>
+@using (Html.BeginForm("Index", "Services", FormMethod.Post))
+{
+    <fieldset>
+        Наименование топлива: @Html.TextBox("RoomType", Model.ServiceViewModel.RoomType)
+        Наименование емкости: @Html.TextBox("ClientFio", Model.ServiceViewModel.ClientFio)
+        <input type="submit" value="Найти" />
+    </fieldset>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceViewModel.ServiceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceViewModel.ServiceDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceViewModel.EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceViewModel.DepartureDate)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder=@Model.ServiceViewModel.SortViewModel.RoomTypeSort>
+                    @Html.DisplayNameFor(model => model.ServiceViewModel.RoomType)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder=@Model.ServiceViewModel.SortViewModel.ClientFioSort>
+                    @Html.DisplayNameFor(model => model.ServiceViewModel.ClientFio)
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Services)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.ClientFio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.RoomType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Worker.WorkerFio)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

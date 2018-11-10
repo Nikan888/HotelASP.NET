@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hotel.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Hotel.Models
+namespace Hotel.Data
 {
     public class HotelContext : DbContext
     {

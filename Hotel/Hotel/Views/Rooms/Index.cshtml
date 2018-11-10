@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Hotel.Models.Room>
+
+@{
+    ViewData["Title"] = "Номер";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Номер</h2>
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomPrice)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

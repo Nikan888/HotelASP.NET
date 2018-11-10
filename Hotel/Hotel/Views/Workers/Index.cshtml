@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Hotel.Models.Worker>
+
+@{
+    ViewData["Title"] = "Сотрудник";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Сотрудник</h2>
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkerFio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkerPost)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkerFio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WorkerPost)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
