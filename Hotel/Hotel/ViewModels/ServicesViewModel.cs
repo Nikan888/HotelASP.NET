@@ -15,7 +15,7 @@ namespace Hotel.ViewModels
         public ServiceViewModel ServiceViewModel { get; set; }
         //Свойство для навигации по страницам
         public PageViewModel PageViewModel { get; set; }
-        //Список отчетных годов
+        
         public SelectList ListYears { get; set; }
     }
 }

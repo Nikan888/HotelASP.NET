@@ -12,7 +12,7 @@ namespace Hotel.Middleware
         private readonly RequestDelegate _next;
         public DbInitializerMiddleware(RequestDelegate next)
         {
-            // инициализация базы данных по университетам
+            // инициализация базы данных
             _next = next;
 
         }

@@ -2,69 +2,59 @@
 @{
     ViewData["Title"] = "Типы номеров";
 }
-<table border="0" cellspacing="100">
+<table border="1">
+    <caption>Клиенты</caption>
     <tr>
-        <td>
-            <table border="1">
-                <caption>Клиенты</caption>
-                <tr>
-                    <th>Код клиента</th>
-                    <th>ФИО клиента</th>
-                    <th>Пасспортные данные клиента</th>
-                </tr>
-                @foreach (var client in Model.Clients)
-                {
-                    <tr>
-                        <td>@client.ClientID</td>
-                        <td>@client.ClientFio</td>
-                        <td>@client.ClientPassportData</td>
-                    </tr>
-                }
-            </table>
-        </td>
-        <td>
-            <table border="1">
-                <caption>Номера</caption>
-                <tr>
-                    <th>Код номера</th>
-                    <th>Тип номера</th>
-                    <th>Вместимость номера</th>
-                    <th>Описание номера</th>
-                    <th>Стоимость номера</th>
-                    <th></th>
-                </tr>
-                @foreach (var room in Model.Rooms)
-                {
-                    <tr>
-                        <td>@room.RoomID</td>
-                        <td>@room.RoomType</td>
-                        <td>@room.RoomCapacity</td>
-                        <td>@room.RoomDescription</td>
-                        <td>@room.RoomPrice</td>
-                    </tr>
-                }
-            </table>
-        </td>
-        <td>
-            <table border="1">
-                <caption>Сотрудники</caption>
-                <tr>
-                    <th>Код сотрудника</th>
-                    <th>ФИО сотрудника</th>
-                    <th>Должность сотрудника</th>
-                    <th></th>
-                </tr>
-                @foreach (var worker in Model.Workers)
-                {
-                    <tr>
-                        <td>@worker.WorkerID</td>
-                        <td>@worker.WorkerFio</td>
-                        <td>@worker.WorkerPost</td>
-                    </tr>
-                }
-            </table>
-        </td>
+        <th>Код клиента</th>
+        <th>ФИО клиента</th>
+        <th>Пасспортные данные клиента</th>
     </tr>
+    @foreach (var client in Model.Clients)
+    {
+        <tr>
+            <td>@client.ClientID</td>
+            <td>@client.ClientFio</td>
+            <td>@client.ClientPassportData</td>
+        </tr>
+    }
+</table>
+<table border="1">
+    <caption>Номера</caption>
+    <tr>
+        <th>Код номера</th>
+        <th>Тип номера</th>
+        <th>Вместимость номера</th>
+        <th>Описание номера</th>
+        <th>Стоимость номера</th>
+        <th></th>
+    </tr>
+    @foreach (var room in Model.Rooms)
+    {
+        <tr>
+            <td>@room.RoomID</td>
+            <td>@room.RoomType</td>
+            <td>@room.RoomCapacity</td>
+            <td>@room.RoomDescription</td>
+            <td>@room.RoomPrice</td>
+        </tr>
+    }
+</table>
+<table border="1">
+    <caption>Сотрудники</caption>
+    <tr>
+        <th>Код сотрудника</th>
+        <th>ФИО сотрудника</th>
+        <th>Должность сотрудника</th>
+        <th></th>
+    </tr>
+    @foreach (var worker in Model.Workers)
+    {
+        <tr>
+            <td>@worker.WorkerID</td>
+            <td>@worker.WorkerFio</td>
+            <td>@worker.WorkerPost</td>
+        </tr>
+    }
 </table>
 <table border="1">
     <caption>Услуги</caption>

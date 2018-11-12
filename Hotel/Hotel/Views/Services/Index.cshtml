@@ -1,5 +1,4 @@
-﻿@using Hotel.ViewModels
-@model ServicesViewModel
+﻿@model Hotel.ViewModels.ServicesViewModel
 @{
     ViewData["Title"] = "Услуги";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,8 +7,8 @@
 @using (Html.BeginForm("Index", "Services", FormMethod.Post))
 {
     <fieldset>
-        Наименование топлива: @Html.TextBox("RoomType", Model.ServiceViewModel.RoomType)
-        Наименование емкости: @Html.TextBox("ClientFio", Model.ServiceViewModel.ClientFio)
+        ФИО клиента: @Html.TextBox("RoomType", Model.ServiceViewModel.RoomType)
+        Тип номера: @Html.TextBox("ClientFio", Model.ServiceViewModel.ClientFio)
         <input type="submit" value="Найти" />
     </fieldset>
 }

@@ -26,7 +26,5 @@ namespace Hotel.ViewModels
             ClientFioSort = sortOrder == SortState.ClientFioAsc ? SortState.ClientFioDesc : SortState.ClientFioAsc;
             CurrentState = sortOrder;
         }
-
-
     }
 }

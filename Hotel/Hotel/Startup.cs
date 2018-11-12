@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Hotel.Models;
-using Hotel.Data;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Hotel.Middleware;
+using Hotel.Data;
+using Hotel.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Hotel
 {
@@ -26,6 +24,11 @@ namespace Hotel
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<HotelContext>(options => options.UseSqlServer(connection));
+            // внедрение зависимости OperationService
+            services.AddTransient<ServicesService>();
+            // добавление поддержки сессии
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             services.AddMvc();
         }
 
@@ -42,7 +45,14 @@ namespace Hotel
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            // добавляем поддержку статических файлов
             app.UseStaticFiles();
+
+            // добавляем поддержку сессий
+            app.UseSession();
+
+            // добавляем компонент middleware по инициализации базы данных и производим инициализацию базы
+            app.UseDbInitializer();
 
             app.UseMvc(routes =>
             {
